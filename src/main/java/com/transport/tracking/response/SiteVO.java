@@ -2,7 +2,7 @@ package com.transport.tracking.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
-import javax.persistence.Column;
+import jakarta.persistence.Column;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SiteVO {

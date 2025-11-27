@@ -3,7 +3,7 @@ package com.transport.fleet.response;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import javax.transaction.Transactional;
+import jakarta.transaction.Transactional;
 import java.util.Date;
 
 @Data

@@ -4,12 +4,12 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.swing.text.DateFormatter;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import java.text.DateFormat;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 
@@ -58,7 +58,7 @@ public class VehRoute {
       @Column(name="XNUMTV_0")
       private String ynumtv;
       @Column(name="DATLIV_0")
-      private String datliv;
+      private LocalDateTime datliv;
       @Column(name="HEUARR_0")
       private String heuarr;
       @Column(name="CREDATTIM_0")

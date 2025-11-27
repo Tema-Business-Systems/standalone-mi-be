@@ -43,7 +43,7 @@ public interface TripRepository extends CrudRepository<Trip, BigDecimal> {
     public List<Trip> getCodeAndDocdateOnly(String veh,Date sdate,Date edate);
 
 
-    @Query("select DISTINCT new com.transport.tracking.response.ResultTripVO(c.code,GETDATE()) from  Trip c where c.site = ?1 and (c.docdate between ?2 AND ?3)")
+    @Query("select DISTINCT new com.transport.tracking.response.ResultTripVO(c.code,CURRENT_TIMESTAMP) from  Trip c where c.site = ?1 and (c.docdate between ?2 AND ?3)")
     public List<ResultTripVO> getcustomCodeAndDocdateOnly(String veh, Date sdate, Date edate);
 
     @Query(value="select c from  Trip c where c.code = ?1 and c.docdate = CAST(?2 as timestamp without time zone) order by trips",nativeQuery = true)

@@ -13,6 +13,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -43,7 +44,7 @@ public class TrackingController {
 
     @GetMapping("/livevehbysiteanddate")
     public List<VehLiveTrack> getVehiclesBySiteAndDate(AccessTokenVO accessTokenVO, @RequestParam(name = "site", required = false) String site,
-                                                       @RequestParam(name = "date",required = false) String date,
+                                                       @RequestParam(name = "date",required = false) Date date,
                                           @RequestParam(name = "active", required = false) Boolean active){
         return trackingService.listTransports(site,date, active);
     }
@@ -72,7 +73,7 @@ public class TrackingController {
 
     @GetMapping("/livedocsbysiteanddate")
     public List<DocReportTrack> getDocumentsBySiteAndDate(AccessTokenVO accessTokenVO, @RequestParam(name = "site", required = false) String site,
-                                                               @RequestParam(name = "date",required = false) String date,
+                                                               @RequestParam(name = "date",required = false) Timestamp date,
                                                                @RequestParam(name = "active", required = false) Boolean active){
         return trackingService.listDocuments(site,date, active);
     }

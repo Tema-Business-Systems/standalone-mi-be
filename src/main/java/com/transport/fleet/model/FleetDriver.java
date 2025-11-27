@@ -2,7 +2,7 @@ package com.transport.fleet.model;
 
 import lombok.Data;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.lang.reflect.Field;
 import java.util.Date;
 

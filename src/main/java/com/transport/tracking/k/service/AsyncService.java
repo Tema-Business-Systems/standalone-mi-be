@@ -22,7 +22,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 
 @Slf4j
 @Component

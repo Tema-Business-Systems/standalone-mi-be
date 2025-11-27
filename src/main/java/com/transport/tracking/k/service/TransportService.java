@@ -25,10 +25,13 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.TimeZone;
 
-import javax.persistence.*;
-import javax.transaction.Transactional;
+import jakarta.persistence.*;
+import jakarta.transaction.Transactional;
 import java.math.BigDecimal;
 import java.text.MessageFormat;
 import java.text.ParseException;
@@ -828,13 +831,16 @@ private static final String DELTE_ALLOCATED_QUERY_UPD = "delete from  {schema}.{
            String DATENOW = format.format(currentDate);
            log.info("insdie craeteLoadVehStcok");
            log.info(vehroute.getCodeyve());
-           Date date1 = format.parse(vehroute.getDatliv());
+//           Date date1 = format.parse(vehroute.getDatliv());
+        LocalDateTime date1 = vehroute.getDatliv();
            XBPTNUM   = vehroute.getBptnum();
            log.info("date =", date1);
-           Calendar calendar = Calendar.getInstance();
-           calendar.setTime(date1);
-           int year = calendar.get(Calendar.YEAR);
-           int mon = calendar.get(Calendar.MONTH);
+//           Calendar calendar = Calendar.getInstance();
+//           calendar.setTime(date1);
+//           int year = calendar.get(Calendar.YEAR);
+//           int mon = calendar.get(Calendar.MONTH);
+            int year = date1.getYear();
+            int mon = date1.getMonthValue() - 1;
            LVS = this.generateLVScode(vehroute.getFcy(), mon + 1, year);
            log.info(LVS);
            int forceseq = 0;
@@ -875,7 +881,8 @@ private static final String DELTE_ALLOCATED_QUERY_UPD = "delete from  {schema}.{
                onlyReceipts = 1;
            }
 
-           String date = format.format(date1);
+//           String date = format.format(date1);
+        String date = date1.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
            String query = "INSERT INTO " + dbSchema + ".XX10CLODSTOH\n" +
                    "(UPDTICK_0, " +
                    "VCRNUM_0, " +
