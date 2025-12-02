@@ -43,10 +43,6 @@ public class TransportController {
     @GetMapping("/allDocs")
     public List<DocsVO> getAllDocs() {
         System.out.println("Designed and developed by Shubham");
-        System.out.println("Jenkins implemented for achieving CI/CD pipeline");
-        System.out.println("docker also created for containerization for wrapping all dependency");
-        System.out.println("AWS also we are using for cloud server");
-        System.out.println("Git, Maven, Github, Log4j, SLF4J, SonarCube, Jenkins, Docker, JUNIT, ELK, ");
         return transportService.getAllDocs();
     }
 
