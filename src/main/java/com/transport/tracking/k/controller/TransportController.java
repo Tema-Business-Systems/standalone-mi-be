@@ -42,7 +42,7 @@ public class TransportController {
 
     @GetMapping("/allDocs")
     public List<DocsVO> getAllDocs() {
-        System.out.println("Jenkins and jdk updation implemented by Shubham");
+        System.out.println("Jenkins implemented by Shubham");
         return transportService.getAllDocs();
     }
 
